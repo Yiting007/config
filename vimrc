@@ -28,10 +28,13 @@ filetype plugin indent on		" automatically detect file types
 set cursorline					" current line"
 set noswapfile					" no swap file, use version control
 set paste						" fix bad autoindent of pasted text
+
+" Indenting
 set expandtab					" to insert space when tab is pressed
-set smarttab
-set sw=2
-set sts=2
+set smartindent
+set autoindent
+set shiftwidth=4     "  indenting is 4 spaces
+set tabstop=4
 set backspace=indent,eol,start	" more powerful backspacing
 
 " Visual
