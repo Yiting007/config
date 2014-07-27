@@ -32,10 +32,12 @@ set paste						" fix bad autoindent of pasted text
 " Indenting
 set expandtab					" to insert space when tab is pressed
 set smartindent
+set smarttab
 set autoindent
 set shiftwidth=4     "  indenting is 4 spaces
 set tabstop=4
 set backspace=indent,eol,start	" more powerful backspacing
+set whichwrap+=<,>,h,l
 
 " Visual
 set number						"show line numbers
