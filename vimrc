@@ -1,5 +1,7 @@
 " Yiting's configuration file for vim
 
+set shell=/bin/sh
+
 set nocompatible " Use Vim defaults instead of 100% vi compatibility
 filetype off
 
@@ -8,11 +10,27 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+" For neocomplete
+" let g:neocomplete#enable_at_startup=1
+
 Plugin 'gmarik/Vundle.vim'
 Plugin 'gmarik/vundle'
+" for surroundings
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
-Plugin 'junegunn/goyo.vim'
+" for status lines
+Plugin 'bling/vim-airline'
+Plugin 'bling/vim-bufferline'
+" for tags
+Plugin 'majutsushi/tagbar'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-easytags'
+" for js
+Plugin 'othree/javascript-libraries-syntax.vim'
+" for golang
+Plugin 'fatih/vim-go'
+" for searching
+Plugin 'Lokaltog/vim-easymotion'
 
 call vundle#end()
 
@@ -50,4 +68,11 @@ map <Left> <Nop>
 map <Right> <Nop>
 map <Up> <Nop>
 map <Down> <Nop>
-map <Leader><Space> : Goyo<CR>
+
+" Smarter tab line
+let g:airline#extensions#tabline#enabled = 1
+
+" configuration for tagbar
+let g:tagbar_ctags_bin='/usr/local/bin/ctags'  " Proper Ctags locations
+let g:tagbar_width=26                          " Default is 40, seems too wide
+nmap <Leader><Space>  :TagbarToggle<CR>
