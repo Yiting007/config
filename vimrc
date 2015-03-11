@@ -28,6 +28,7 @@ Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-easytags'
 " for js
 Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'jaxbot/browserlink.vim'
 " Plugin 'burnettk/vim-angular'
 " for golang
 Plugin 'fatih/vim-go'
@@ -43,6 +44,12 @@ Plugin 'Shougo/unite.vim'
 Plugin 'tpope/vim-commentary'
 " for strolling
 Plugin 'yonchu/accelerated-smooth-scroll'
+" for auto complete
+Plugin 'Townk/vim-autoclose'
+Plugin 'vim-scripts/closetag.vim'
+Plugin 'Valloric/YouCompleteMe'
+" workspace control
+" Plugin 'szw/vim-ctrlspace'
 call vundle#end()
 
 " General
@@ -57,6 +64,7 @@ se mouse+=a
 syntax on
 filetype plugin indent on		" automatically detect file types
 set cursorline					" current line"
+set cursorcolumn
 set noswapfile					" no swap file, use version control
 
 " Indenting
@@ -106,3 +114,7 @@ set hidden "allow switching buffers without saving
 
 "some other maps
 nnoremap <Leader>f :Unite file<CR> 
+nnoremap <leader>q :bd<CR>
+
+" YouCompleteMe
+let g:ycm_key_list_select_completion = ['<TAB>', '<Down>', '<Enter>']
