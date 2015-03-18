@@ -10,9 +10,6 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" For neocomplete
-" let g:neocomplete#enable_at_startup=1
-
 Plugin 'gmarik/Vundle.vim'
 Plugin 'gmarik/vundle'
 " for HTML
@@ -22,6 +19,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 " for status lines
 Plugin 'bling/vim-airline'
+Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 " for tags
 Plugin 'majutsushi/tagbar'
 Plugin 'xolox/vim-misc'
@@ -45,9 +43,8 @@ Plugin 'tpope/vim-commentary'
 " for strolling
 Plugin 'yonchu/accelerated-smooth-scroll'
 " for auto complete
-Plugin 'Townk/vim-autoclose'
-Plugin 'vim-scripts/closetag.vim'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'yiting007/snipmate.vim'
 " workspace control
 " Plugin 'szw/vim-ctrlspace'
 call vundle#end()
@@ -117,4 +114,8 @@ nnoremap <Leader>f :Unite file<CR>
 nnoremap <leader>q :bd<CR>
 
 " YouCompleteMe
-let g:ycm_key_list_select_completion = ['<TAB>', '<Down>', '<Enter>']
+let g:ycm_key_list_select_completion = ['<Down>', '<Enter>']
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_complete_in_strings = 1 "show completion menu when typing inside strings
+let g:ycm_seed_identifiers_with_syntax = 1 " seed the identifier database with the keywords of the language
