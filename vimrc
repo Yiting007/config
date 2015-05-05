@@ -1,4 +1,4 @@
-8" Yiting's configuration file for vim
+" Yiting's configuration file for vim
 
 set shell=/bin/sh
 
