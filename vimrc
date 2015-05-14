@@ -154,9 +154,9 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['jshint', 'jscs']    " configuration files under $HOME
+let g:syntastic_javascript_checkers = ['jshint', 'jscs']    
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
-"shift+t: open syntastic check
+" shift+t: open syntastic check
 nnoremap <S-t> :SyntasticCheck<CR> 
 " shift+y: close syntastic check
 nnoremap <S-y> :SyntasticToggleMode<CR>
