@@ -59,7 +59,6 @@ au BufWrite /private/tmp/crontab.* set nowritebackup	" don't write backup for "c
 au BufWrite /private/etc/pw.* set nowritebackup			" don't write backup for "chpass"
 filetype indent on
 filetype plugin on
-set number
 se mouse+=a
 
 " Formatting
