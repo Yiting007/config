@@ -59,6 +59,7 @@ au BufWrite /private/tmp/crontab.* set nowritebackup	" don't write backup for "c
 au BufWrite /private/etc/pw.* set nowritebackup			" don't write backup for "chpass"
 filetype indent on
 filetype plugin on
+set number
 se mouse+=a
 
 " Formatting
@@ -144,6 +145,9 @@ autocmd FileType css vnoremap <c-[> :call RangeCSSBeautify()<cr>
 set colorcolumn=100
 set tw=100  "set textwidth to 100
 set wrap
+
+" height trailing whitespaces
+match ErrorMsg '\s\+$'
 
 " syntastic
 set statusline+=%#warningmsg#
