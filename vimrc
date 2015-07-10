@@ -30,7 +30,6 @@ Plugin 'xolox/vim-easytags'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'jaxbot/browserlink.vim'
 Plugin 'scrooloose/syntastic'
-" Plugin 'burnettk/vim-angular'
 " for golang
 Plugin 'fatih/vim-go'
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
@@ -61,6 +60,7 @@ filetype indent on
 filetype plugin on
 set number
 se mouse+=a
+set encoding=utf-8
 
 " Formatting
 syntax on
@@ -90,16 +90,13 @@ nmap <Right> <Nop>
 nmap <Up> <Nop>
 nmap <Down> <Nop>
 
-" Smarter tab line
+" airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme             = 'powerlineish'
-" power line
-let g:Powerline_symbols = 'fancy'
-set nocompatible   " Disable vi-compatibility
+let g:airline_powerline_fonts = 1
+
+" powerline: this is the old vim-powerline, hmm the new one is so big... I won't use that.
 set laststatus=2   " Always show the statusline
-set encoding=utf-8 " Necessary to show Unicode glyphs
-
-
 
 " configuration for tagbar
 let g:tagbar_ctags_bin='/usr/local/bin/ctags'  " Proper Ctags locations
@@ -124,7 +121,7 @@ nnoremap <S-Tab> :bprevious<CR>
 set hidden "allow switching buffers without saving
 
 "some other maps
-nnoremap <Leader>f :Unite file<CR> 
+nnoremap <Leader>f :Unite file<CR>
 nnoremap <leader>q :bd<CR>
 
 " YouCompleteMe
@@ -141,7 +138,7 @@ autocmd FileType javascript vnoremap <c-[> :call RangeJsBeautify()<cr>
 autocmd FileType html vnoremap <c-[> :call RangeHtmlBeautify()<cr>
 autocmd FileType css vnoremap <c-[> :call RangeCSSBeautify()<cr>
 
-" limit line length to 80
+" limit line length to 100
 set colorcolumn=100
 set tw=100  "set textwidth to 100
 set wrap
@@ -157,9 +154,11 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['jshint', 'jscs']    
+let g:syntastic_javascript_checkers = ['jshint', 'jscs']
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
 " shift+t: open syntastic check
-nnoremap <S-t> :SyntasticCheck<CR> 
+nnoremap <S-t> :SyntasticCheck<CR>
 " shift+y: close syntastic check
 nnoremap <S-y> :SyntasticToggleMode<CR>
+
+set guifont=Source\ Code\ Pro\ for\ Powerline
