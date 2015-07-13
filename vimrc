@@ -133,10 +133,18 @@ let g:ycm_seed_identifiers_with_syntax = 1 " seed the identifier database with t
 
 set tags=tags;/
 
+" function! StormifyCSS()
+"     let n=[0] | bufdo %s/}\zs/\=map(n,'v:val+1')[1:]/gn
+"     echo n
+" endfunction
+
 " vim-jsbeautify
 autocmd FileType javascript vnoremap <c-[> :call RangeJsBeautify()<cr>
 autocmd FileType html vnoremap <c-[> :call RangeHtmlBeautify()<cr>
-autocmd FileType css vnoremap <c-[> :call RangeCSSBeautify()<cr>
+" stormify css files
+autocmd FileType css vnoremap <c-[> :call RangeCSSBeautify()<cr> :%s/}/}\r/g<cr>
+" sort blocks (currently used in stormify css process)
+nmap <Leader>z jv/}<cr>k$:sort<cr>/{<cr>0
 
 " limit line length to 100
 set colorcolumn=100
