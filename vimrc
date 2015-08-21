@@ -68,6 +68,7 @@ filetype plugin indent on		" automatically detect file types
 set cursorline					" current line"
 set cursorcolumn
 set noswapfile					" no swap file, use version control
+set formatoptions-=cro  " no continue comments
 
 " Indenting
 set expandtab					" to insert space when tab is pressed
