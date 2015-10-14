@@ -2,6 +2,7 @@
 
 set shell=/bin/sh
 
+set t_Co=256
 set nocompatible " Use Vim defaults instead of 100% vi compatibility
 filetype off
 
@@ -93,6 +94,7 @@ nmap <Down> <Nop>
 
 " airline
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_alt_sep = ' '
 let g:airline_theme             = 'powerlineish'
 let g:airline_powerline_fonts = 1
 
@@ -134,11 +136,6 @@ let g:ycm_seed_identifiers_with_syntax = 1 " seed the identifier database with t
 
 set tags=tags;/
 
-" function! StormifyCSS()
-"     let n=[0] | bufdo %s/}\zs/\=map(n,'v:val+1')[1:]/gn
-"     echo n
-" endfunction
-
 " vim-jsbeautify
 autocmd FileType javascript vnoremap <c-[> :call RangeJsBeautify()<cr>
 autocmd FileType html vnoremap <c-[> :call RangeHtmlBeautify()<cr>
@@ -170,4 +167,4 @@ nnoremap <S-t> :SyntasticCheck<CR>
 " shift+y: close syntastic check
 nnoremap <S-y> :SyntasticToggleMode<CR>
 
-set guifont=Source\ Code\ Pro\ for\ Powerline
+" set guifont=Source\ Code\ Pro\ for\ Powerline
