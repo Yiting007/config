@@ -52,6 +52,8 @@ Plugin 'yiting007/snipmate.vim'
 Plugin 'tpope/vim-fugitive'
 " workspace control
 " Plugin 'szw/vim-ctrlspace'
+Plugin 'luochen1990/indent-detector.vim'
+Plugin 'yegappan/mru'
 call vundle#end()
 
 " General
@@ -62,12 +64,13 @@ filetype plugin on
 set number
 se mouse+=a
 set encoding=utf-8
+set formatoptions-=cro
 
 " Formatting
 syntax on
 filetype plugin indent on		" automatically detect file types
 set cursorline					" current line"
-set cursorcolumn
+" set cursorcolumn
 set noswapfile					" no swap file, use version control
 set formatoptions-=cro  " no continue comments
 
@@ -79,7 +82,7 @@ set autoindent
 set shiftwidth=4     "  indenting is 4 spaces
 set tabstop=4
 set backspace=indent,eol,start	" more powerful backspacing
-" set whichwrap+=<,>,h,l
+set whichwrap+=<,>,h,l
 
 " Visual
 set number						"show line numbers
@@ -145,8 +148,8 @@ autocmd FileType css vnoremap <c-[> :call RangeCSSBeautify()<cr> :%s/}/}\r/g<cr>
 nmap <Leader>z jv/}<cr>k$:sort<cr>/{<cr>0
 
 " limit line length to 100
-set colorcolumn=100
-set tw=100  "set textwidth to 100
+" set colorcolumn=100
+" set tw=100  "set textwidth to 100
 set wrap
 
 " height trailing whitespaces
