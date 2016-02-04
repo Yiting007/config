@@ -1,5 +1,6 @@
 " Yiting's configuration file for vim
 
+
 set shell=/bin/sh
 
 set t_Co=256
@@ -13,27 +14,33 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'gmarik/vundle'
+" themes
+Plugin 'kristijanhusak/vim-hybrid-material'
 " for HTML
 Plugin 'mattn/emmet-vim'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'einars/js-beautify'
+Plugin 'ap/vim-css-color'
 " for surroundings
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 " for status lines
 Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Lokaltog/vim-powerline'
 " for tags
 Plugin 'majutsushi/tagbar'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-easytags'
+" Plugin 'szw/vim-tags'
 " for js
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'jaxbot/browserlink.vim'
 Plugin 'scrooloose/syntastic'
+Plugin '29decibel/vim-stringify' "key: \1
 " for golang
-Plugin 'fatih/vim-go'
-Plugin 'nsf/gocode', {'rtp': 'vim/'}
+" Plugin 'fatih/vim-go'
+" Plugin 'nsf/gocode', {'rtp': 'vim/'}
 " for coffee
 Plugin 'kchmck/vim-coffee-script'
 " for searching
@@ -44,6 +51,7 @@ Plugin 'Shougo/unite.vim'
 " for comments
 Plugin 'tpope/vim-commentary'
 " for strolling
+" <C-D>/<C-U> and <C-F>/<C-B> keys are replaced by default.
 Plugin 'yonchu/accelerated-smooth-scroll'
 " for auto complete
 Plugin 'Valloric/YouCompleteMe'
@@ -52,7 +60,7 @@ Plugin 'yiting007/snipmate.vim'
 Plugin 'tpope/vim-fugitive'
 " workspace control
 " Plugin 'szw/vim-ctrlspace'
-Plugin 'luochen1990/indent-detector.vim'
+" Plugin 'luochen1990/indent-detector.vim'
 Plugin 'yegappan/mru'
 call vundle#end()
 
@@ -62,7 +70,7 @@ au BufWrite /private/etc/pw.* set nowritebackup			" don't write backup for "chpa
 filetype indent on
 filetype plugin on
 set number
-se mouse+=a
+se mouse-=a
 set encoding=utf-8
 set formatoptions-=cro
 
@@ -83,6 +91,7 @@ set shiftwidth=4     "  indenting is 4 spaces
 set tabstop=4
 set backspace=indent,eol,start	" more powerful backspacing
 set whichwrap+=<,>,h,l
+set list lcs=tab:\|\  " show indentation with |
 
 " Visual
 set number						"show line numbers
@@ -98,7 +107,6 @@ nmap <Down> <Nop>
 " airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_alt_sep = ' '
-let g:airline_theme             = 'powerlineish'
 let g:airline_powerline_fonts = 1
 
 " powerline: this is the old vim-powerline, hmm the new one is so big... I won't use that.
@@ -129,6 +137,7 @@ set hidden "allow switching buffers without saving
 "some other maps
 nnoremap <Leader>f :Unite file<CR>
 nnoremap <leader>q :bd<CR>
+map <leader>1 :call Stringify()<CR> 
 
 " YouCompleteMe
 let g:ycm_key_list_select_completion = ['<Down>', '<Enter>']
@@ -170,4 +179,6 @@ nnoremap <S-t> :SyntasticCheck<CR>
 " shift+y: close syntastic check
 nnoremap <S-y> :SyntasticToggleMode<CR>
 
-" set guifont=Source\ Code\ Pro\ for\ Powerline
+"theme
+colorscheme hybrid_material
+let g:airline_theme = "hybrid"
