@@ -68,5 +68,5 @@
   "disallowMultipleSpaces": true,
   "disallowSpacesInCallExpression": true,
   "requireAnonymousFunctions": true,
-  "requirePaddingNewLinesAfterUseStrict": true,
+  "requirePaddingNewLinesAfterUseStrict": true
 }
