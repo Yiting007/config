@@ -31,7 +31,7 @@ Plugin 'Lokaltog/vim-powerline'
 " for tags
 Plugin 'majutsushi/tagbar'
 Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-easytags'
+" Plugin 'xolox/vim-easytags'
 " Plugin 'szw/vim-tags'
 " for js
 Plugin 'othree/javascript-libraries-syntax.vim'
@@ -48,6 +48,7 @@ Plugin 'Lokaltog/vim-easymotion'
 Plugin 'scrooloose/nerdtree'
 Plugin 'MattesGroeger/vim-bookmarks'
 Plugin 'Shougo/unite.vim'
+Plugin 'rking/ag.vim'
 " for comments
 Plugin 'tpope/vim-commentary'
 " for strolling
@@ -55,6 +56,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'yonchu/accelerated-smooth-scroll'
 " for auto complete
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'ternjs/tern_for_vim'
 Plugin 'yiting007/snipmate.vim'
 " for git
 Plugin 'tpope/vim-fugitive'
@@ -70,33 +72,34 @@ au BufWrite /private/etc/pw.* set nowritebackup			" don't write backup for "chpa
 filetype indent on
 filetype plugin on
 set number
+set relativenumber
 se mouse-=a
 set encoding=utf-8
 set formatoptions-=cro
 
 " Formatting
 syntax on
-filetype plugin indent on		" automatically detect file types
-set cursorline					" current line"
+filetype plugin indent on       " automatically detect file types
+set cursorline                  " current line"
 " set cursorcolumn
-set noswapfile					" no swap file, use version control
-set formatoptions-=cro  " no continue comments
+set noswapfile                  " no swap file, use version control
+set formatoptions-=cro          " no continue comments
 
 " Indenting
-set expandtab					" to insert space when tab is pressed
+set expandtab                   " to insert space when tab is pressed
 set smartindent
 set smarttab
 set autoindent
-set shiftwidth=4     "  indenting is 4 spaces
+set shiftwidth=4                "  indenting is 4 spaces
 set tabstop=4
-set backspace=indent,eol,start	" more powerful backspacing
+set backspace=indent,eol,start  " more powerful backspacing
 set whichwrap+=<,>,h,l
-set list lcs=tab:\|\  " show indentation with |
+set list lcs=tab:\|\            " show indentation with |
 
 " Visual
-set number						"show line numbers
-set hlsearch					"search highlight
-set clipboard=unnamed           "copy to clipboard
+set number                      " show line numbers
+set hlsearch                    " search highlight
+set clipboard=unnamed           " copy to clipboard
 
 " Controls
 nmap <Left> <Nop>
@@ -120,31 +123,36 @@ nmap <Leader>n  :TagbarToggle<CR>
 " nerdtree
 " autocmd vimenter * NERDTree
 nmap <C-n> :NERDTreeToggle<CR>
+" press o to open a new file in the current window
+" press s to open a new file in the split window
 set completeopt-=preview
 
-"lint"
-set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
-nmap <Leader>l :GoLint<CR>
+" golang lint"
+" set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
+" nmap <Leader>l :GoLint<CR>
 
-"ctags
+" ctags
 set tags=./tags,tags;$HOME
 
-"buffers
+" buffers
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
-set hidden "allow switching buffers without saving
+set hidden " allow switching buffers without saving
 
-"some other maps
+" some other maps
 nnoremap <Leader>f :Unite file<CR>
 nnoremap <leader>q :bd<CR>
-map <leader>1 :call Stringify()<CR> 
+map <leader>1 :call Stringify()<CR>
+
+" MRU
+nnoremap <Leader>] :MRU<CR>
 
 " YouCompleteMe
 let g:ycm_key_list_select_completion = ['<Down>', '<Enter>']
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_complete_in_strings = 1 "show completion menu when typing inside strings
-let g:ycm_seed_identifiers_with_syntax = 1 " seed the identifier database with the keywords of the language
+let g:ycm_complete_in_strings = 1                               " show completion menu when typing inside strings
+let g:ycm_seed_identifiers_with_syntax = 1                      " seed the identifier database with the keywords of the language
 
 set tags=tags;/
 
@@ -172,13 +180,17 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['jshint', 'jscs']
+let g:syntastic_javascript_checkers = ['jshint', 'jscs'] 
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
 " shift+t: open syntastic check
 nnoremap <S-t> :SyntasticCheck<CR>
 " shift+y: close syntastic check
 nnoremap <S-y> :SyntasticToggleMode<CR>
 
-"theme
-colorscheme hybrid_material
+" theme
+colorscheme hybrid_reverse
 let g:airline_theme = "hybrid"
+set background=dark
+
+" Ag
+let g:ag_working_path_mode="r"
